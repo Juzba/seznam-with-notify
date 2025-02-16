@@ -1,14 +1,13 @@
 import Notification from "./components/Notification";
-import Pokusy from "./components/Pokusy";
 
 const App = () => {
 	return (
 		<div>
 			<Notification />
-			<hr></hr>
+			{/* <hr></hr>
 			<br />
-			<br />
-			<Pokusy/>
+			<br /> */}
+			{/* <Pokusy/> */}
 		</div>
 	);
 };

@@ -4,31 +4,43 @@ $background-color: #141414;
 $primary-text-color: white;
 
 .notify {
+	margin-top:  60px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	align-items: center;
-	height: 80vh;
+	min-height: 80vh;
 
 	form {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		height:  200px;
+		position: relative;
 
-		p {
+		.cont {
+			position: absolute;
+			top: 0;
          margin: 5px;
 			padding: 5px 10px;
-         height: 25px;
+			height: 30px; 
 			box-shadow: 0 0 25px $primary-color;
 			text-shadow: 0 0 5px $primary-color;
 			border-radius: 10px;
-
+			
          display: flex;
+			opacity: 0;
          align-items: center;
-
+			transition: all 1s linear;
+			
+			&.show{
+				display: flex;
+				opacity: 1;
+			}
 		}
-
+		
+		
+		
 		input[type="text"] {
          margin: 10px;
          padding: 5px 10px;
