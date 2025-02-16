@@ -3,6 +3,21 @@ $secondary-color: #59040e;
 $background-color: #141414;
 $primary-text-color: white;
 
+
+
+
+.primary{
+	$primary-color: yellow;
+}
+	
+
+
+@mixin col{
+	background-color: orange;
+	color: blue;
+}
+
+
 .notify {
 	margin-top:  60px;
 	display: flex;
@@ -51,11 +66,12 @@ $primary-text-color: white;
 		}
 
       input[type="submit"]{
+			@include col;
          margin-bottom: 15px;
          padding: 5px 10px;
-         background-color: $primary-color;
          border: none;
-         color: $primary-text-color;
+         // color: $primary-text-color;
+         // background-color: $primary-color;
          border-radius: 1px;
 
          &:active{

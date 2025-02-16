@@ -3,8 +3,8 @@ import "./Notification.scss";
 
 const Notification = () => {
 	const [list, setList] = useState([]);
-	const [inp, setInput] = useState("");
-	const [showNotify, setShowNotify] = useState(false)
+	const [movieName, setMovieName] = useState("");
+	const [showNotify, setShowNotify] = useState(false);
 
 	const removeItem = (id) => {
 		setList(
@@ -17,14 +17,14 @@ const Notification = () => {
 	const onChange = (e) => {
 		e.preventDefault();
 
-		if (inp) {
-			setList([...list, inp]);
-			setInput("");
-			console.log("time start");
-			setShowNotify(true)
+		if (movieName) {
+			setList([...list, movieName]);
+			setMovieName("");
+
+			setShowNotify(true);
+
 			setTimeout(() => {
-				console.log("time out");
-				setShowNotify(false)
+				setShowNotify(false);
 			}, 3000);
 		}
 	};
@@ -33,7 +33,7 @@ const Notification = () => {
 		<section className="notify">
 			<form onSubmit={onChange}>
 				<p className={showNotify ? "cont show" : "cont"}>{list[list.length - 1]}</p>
-				<input type="text" value={inp} onChange={(e) => setInput(e.target.value)} />
+				<input type="text" value={movieName} onChange={(e) => setMovieName(e.target.value)} />
 				<input type="submit" value="Přidat" />
 			</form>
 
