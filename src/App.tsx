@@ -4,10 +4,6 @@ const App = () => {
 	return (
 		<div>
 			<Notification />
-			{/* <hr></hr>
-			<br />
-			<br /> */}
-			{/* <Pokusy/> */}
 		</div>
 	);
 };
