@@ -1,13 +1,15 @@
-import React, { useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 import "./Notification.scss";
 
 const reducer = (state: any, action: any) => {
 	switch (action.type) {
+
 		case "SetMovieName":
 			return {
 				...state,
 				movieName: action.payload,
 			};
+
 		case "SetMovieList":
 			return {
 				...state,
@@ -35,8 +37,17 @@ const reducer = (state: any, action: any) => {
 				showNotify: false,
 			};
 
+		case "CHYBA_ZADANI":
+			return {
+				...state,
+				showNotify: true,
+				notifyText: "Neplatné zadání!",
+			};
+
 		default:
-			return state;
+			// return state;
+			console.log("Chyba useReducer -> action type nenalezen");
+			return new Error("Chyba 123");
 	}
 };
 
@@ -54,22 +65,20 @@ const Notification = () => {
 	const onChange = (e: any) => {
 		e.preventDefault();
 
-		if (movieName) {
+		if (movieName.length === 0 || movieName.length > 29) {
+			dispatch({ type: "CHYBA_ZADANI" });
+		} else {
 			dispatch({ type: "SetMovieList" });
 		}
 	};
 
+	
+
 	useEffect(() => {
-		let t1: any;
 		if (showNotify)
-			t1 = setTimeout(() => {
+			setTimeout(() => {
 				dispatch({ type: "NotifyDisable" });
 			}, 3000);
-		return () => {
-			if (showNotify) {
-				clearTimeout(t1);
-			}
-		};
 	}, [showNotify]);
 
 	return (

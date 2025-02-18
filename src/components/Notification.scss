@@ -42,6 +42,8 @@ $primary-text-color: white;
 			box-shadow: 0 0 25px $primary-color;
 			text-shadow: 0 0 5px $primary-color;
 			border-radius: 10px;
+			overflow: hidden;
+			text-wrap: noWrap;
 			
          display: flex;
 			opacity: 0;
@@ -102,6 +104,7 @@ $primary-text-color: white;
          height: 30px;
 			margin: 0;
 			font-size: 20px;
+			overflow: hidden;
 		}
 
 		button {
